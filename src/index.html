@@ -23,11 +23,13 @@
   <main class="container relative">
     <nav class="absolute right-[5%] top-0 xs:right-[10%]">
       <button
-        id="js-theme-btn"
+        
         aria-label="toggle dark theme"
         class="group h-11 w-11 rounded-b bg-indigo-700 text-xl text-violet-200 shadow-md transition-all duration-300 ease-out hover:h-14 hover:bg-indigo-950 hover:text-white dark:bg-indigo-300 dark:text-indigo-700 dark:hover:bg-indigo-700 dark:hover:text-white"
       >
-        <span class="group-hover:animate-pulse">
+        <span class="group-hover:animate-pulse"
+              id="js-theme-btn"
+        >
           <i class="fa-solid fa-moon block dark:hidden"></i>
           <i class="fa-regular fa-sun hidden dark:block"></i>
         </span>
