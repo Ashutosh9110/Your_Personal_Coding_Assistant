@@ -1,0 +1,156 @@
+/* 
+* Prism syntax highlighting style overrides
+*/
+
+code,
+pre,
+code[class*='language-'],
+pre[class*='language-'] {
+	white-space: pre-wrap;
+	word-break: break-word;
+	border-radius: 0px;
+	font-size: 12px;
+	font-family: 'Source Code Pro', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'monospace';
+	padding: 0.5rem;
+	background-color: #fcf7ff;
+	overflow: hidden;
+}
+
+pre > code,
+pre[class*='language-'] > code {
+	box-shadow: none;
+	border: none;
+	background: none;
+}
+
+pre[class*='language-']:before,
+pre[class*='language-']:after {
+	display: none;
+}
+
+
+.dark code,
+.dark pre {
+	background: #27212e;
+	color: #ffffff;
+	font-family: 'Source Code Pro', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'monospace';
+	/* The following properties are standard, please leave them as they are */
+	font-size: 12px;
+	direction: ltr;
+	text-align: left;
+	white-space: pre-wrap;
+	word-spacing: normal;
+	word-break: normal;
+	line-height: 1.5;
+	-moz-tab-size: 2;
+	-o-tab-size: 2;
+	tab-size: 2;
+	/* The following properties are also standard */
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+}
+
+.dark code::-moz-selection,
+.dark code ::-moz-selection,
+.dark pre::-moz-selection,
+.dark pre ::-moz-selection {
+	background: #eb64b927;
+	color: inherit;
+}
+
+.dark code::selection,
+.dark code ::selection,
+.dark pre::selection,
+.dark pre ::selection {
+	background: #eb64b927;
+	color: inherit;
+}
+
+/* Properties specific to code blocks */
+.dark pre {
+	overflow: hidden;
+}
+
+/* Properties specific to inline code */
+.dark :not(pre) > code {
+	padding: 0.2em 0.3em;
+	border-radius: 0.5rem;
+	white-space: pre-wrap; /* this is standard */
+}
+
+.dark .token.comment,
+.dark .token.prolog,
+.dark .token.cdata {
+	color: #91889b;
+}
+
+.dark .token.punctuation {
+	color: #7b6995;
+}
+
+.dark .token.builtin,
+.dark .token.constant,
+.dark .token.boolean {
+	color: #ffe261;
+}
+
+.dark .token.number {
+	color: #b381c5;
+}
+
+.dark .token.important,
+.dark .token.atrule,
+.dark .token.property,
+.dark .token.keyword {
+	color: #40b4c4;
+}
+
+.dark .token.doctype,
+.dark .token.operator,
+.dark .token.inserted,
+.dark .token.tag,
+.dark .token.class-name,
+.dark .token.symbol {
+	color: #74dfc4;
+	background: none;
+}
+
+.dark .token.attr-name,
+.dark .token.function,
+.dark .token.deleted,
+.dark .token.selector {
+	/* color: #eb64b9; -- original theme color for 'laserwave' */
+	color: #cfafec;
+}
+
+.dark .token.attr-value,
+.dark .token.regex,
+.dark .token.char,
+.dark .token.string {
+	color: #b4dce7;
+}
+
+.dark .token.entity,
+.dark .token.url,
+.dark .token.variable {
+	color: #ffffff;
+}
+
+/* The following rules are pretty similar across themes, but feel free to adjust them */
+.dark .token.bold {
+	font-weight: bold;
+}
+
+.dark .token.italic {
+	font-style: italic;
+}
+
+.dark .token.entity {
+	cursor: help;
+}
+
+.dark .token.namespace {
+	opacity: 0.7;
+}
