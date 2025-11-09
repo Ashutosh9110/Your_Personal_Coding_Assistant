@@ -19,7 +19,6 @@ function insertMessage(elementType, content, lang, msgType = "ai") {
     myTextTypewriter(el, content);
   }
   addMessageStyles(el, msgType);
-  autoScrollToBottom();
   checkScrollInterval();
 }
 

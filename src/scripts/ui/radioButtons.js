@@ -17,7 +17,7 @@ radioFieldset.addEventListener("change", (event) => {
   localStorage.setItem("optionType", option);
 });
 
-function applyRadioOption() {
+function applySavedOption() {
   if (storedOptionType) {
     const storedEl = document.querySelector(`#js-radio-${storedOptionType}`);
     storedEl.checked = true;
@@ -26,4 +26,4 @@ function applyRadioOption() {
   }
 }
 
-export { applyRadioOption };
+export { applySavedOption };
