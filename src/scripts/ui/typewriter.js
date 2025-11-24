@@ -36,7 +36,7 @@ function myTextTypewriter(el, content) {
     if (i < content.length) {
       el.textContent = content.substring(0, i + 1) + cursor;
       i++;
-      typingTimeouts.set(el, setTimeout(typeChar, 35));
+      typingTimeouts.set(el, setTimeout(typeChar, 40));
     } else {
       el.textContent = content;
       typingTimeouts.delete(el);

@@ -28,6 +28,12 @@ textarea.addEventListener("submit", (event) => {
   event.preventDefault();
   insertMessage("div", userInput.value, null, "user");
 
+  if (commandsArray.includes(userInput.value)) {
+		commandHandler(userInput.value);
+	} else {
+		randomMessage();
+	}
+  
   const currentInputValue = userInput.value.toLowerCase().trim();
   commandsList.includes(currentInputValue)
     ? processCommand(currentInputValue)

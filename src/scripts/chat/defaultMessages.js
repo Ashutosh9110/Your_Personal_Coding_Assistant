@@ -11,7 +11,7 @@ function typeDefaultMessages(option = "explain") {
 }
 
 function clearInstructions() {
-  const messageEl = [messageDosEl, messageDontsEl];
+  const messageEl = document.querySelectorAll('.js-message p');
   messageEl.forEach((el) => {
     el.textContent = "";
   });
