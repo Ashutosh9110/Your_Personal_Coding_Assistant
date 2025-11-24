@@ -1,5 +1,5 @@
 import { myCodeTypewriter, myTextTypewriter } from "../ui/typewriter";
-import { autoScrollToBottom, checkScrollInterval  } from "./chatScroll";
+import { autoScrollToBottom } from "./chatScroll";
 import { commandStyles } from "./chatCommands";
 import { userStyles } from "./userInput";
 import { aiStyles } from "../ai/api";
@@ -19,7 +19,7 @@ function insertMessage(elementType, content, lang, msgType = "ai") {
     myTextTypewriter(el, content);
   }
   addMessageStyles(el, msgType);
-  checkScrollInterval();
+  autoScrollToBottom();
 }
 
 // Helper
