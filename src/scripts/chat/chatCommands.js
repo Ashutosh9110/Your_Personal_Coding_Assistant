@@ -12,7 +12,6 @@ const commandStyles = [
 
 function processCommand(userInput) {
   insertCommandMessage("", userInput);
-
   if (document.querySelector(`#js-radio-${userInput}`)) {
     document.querySelector(`#js-radio-${userInput}`).click();
   }
@@ -24,7 +23,6 @@ function processCommand(userInput) {
 function insertCommandMessage(message, userInput) {
   const chatContainer = document.querySelector("#js-chat");
   const div = document.createElement("div");
-
   // if saved obj (message) from localStorage, otherwise, use userInput:
   div.innerHTML = message.el || chatCommands[userInput];
   chatContainer.appendChild(div);

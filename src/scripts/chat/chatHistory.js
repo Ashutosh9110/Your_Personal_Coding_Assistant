@@ -11,7 +11,6 @@ const cursor = " ●";
 function myCodeTypewriter(el, content, lang) {
   const langDefault = Prism.languages.javascript;
   let i = 0;
-
   function typeChar() {
     if (i < content.length) {
       el.textContent = content.substring(0, i + 1) + cursor;

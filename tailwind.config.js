@@ -11,7 +11,7 @@ module.exports = {
     extend: {
       fontFamily: {
         sans: [
-          "Noto Sans",
+          "Inter",
           "system-ui",
           "-apple-system",
           "BlinkMacSystemFont",
