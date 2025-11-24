@@ -19,7 +19,6 @@ import "./ui/topToolbar";
 import "./chat/chatScroll";
 import "./chat/test";
 
-
 // Initialize
 applySavedTheme();
 typeDefaultMessages();

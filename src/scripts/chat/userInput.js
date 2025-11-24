@@ -17,6 +17,13 @@ const messageEl = document.querySelector("#js-toolbar-message");
 const userInput = document.querySelector("#js-user-input");
 const textarea = document.querySelector("#js-user-form");
 
+
+function saveChatHistory() {
+	const printedMessages = document.querySelectorAll('.js-response');
+	localStorage.setItem('chatHistory', printedMessages);
+	console.log(printedMessages);
+}
+
 textarea.addEventListener("submit", (event) => {
   event.preventDefault();
   insertMessage("div", userInput.value, null, "user");
