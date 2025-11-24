@@ -14,7 +14,7 @@ function insertMessage(elementType, content, lang, msgType = "ai") {
     el.setAttribute("data-lang", lang); // to be used for storage
     myCodeTypewriter(el, content, lang);
   } else if (msgType === "user") {
-    el.textContent = content; // user content should display immediately & skip typewriting
+    el.textContent = content; // no typewriting effect for user inputs
   } else {
     myTextTypewriter(el, content);
   }

@@ -1,5 +1,5 @@
 import { insertMessage } from "./insertMessage";
-import { commandsList, processCommand } from "../chat/chatCommands";
+import { commandsList, processCommand } from "./chatCommands";
 import { processAPIResponse } from "../ai/api";
 
 const userStyles = [
@@ -28,13 +28,7 @@ textarea.addEventListener("submit", (event) => {
   event.preventDefault();
   insertMessage("div", userInput.value, null, "user");
 
-  if (commandsArray.includes(userInput.value)) {
-		commandHandler(userInput.value);
-	} else {
-		randomMessage();
-	}
-  
-  const currentInputValue = userInput.value.toLowerCase().trim();
+  const currentInputValue = userInput.value.toLowerCase();
   commandsList.includes(currentInputValue)
     ? processCommand(currentInputValue)
     : processAPIResponse(currentInputValue);
