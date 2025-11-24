@@ -1,5 +1,5 @@
 import { insertMessage } from "./insertMessage";
-import { commandsList, processCommand } from "./chatCommands";
+import { commandsList, processCommand } from "../chat/chatCommands";
 import { processAPIResponse } from "../ai/api";
 
 const userStyles = [
@@ -17,18 +17,11 @@ const messageEl = document.querySelector("#js-toolbar-message");
 const userInput = document.querySelector("#js-user-input");
 const textarea = document.querySelector("#js-user-form");
 
-
-function saveChatHistory() {
-	const printedMessages = document.querySelectorAll('.js-response');
-	localStorage.setItem('chatHistory', printedMessages);
-	console.log(printedMessages);
-}
-
 textarea.addEventListener("submit", (event) => {
   event.preventDefault();
   insertMessage("div", userInput.value, null, "user");
 
-  const currentInputValue = userInput.value.toLowerCase();
+  const currentInputValue = userInput.value.toLowerCase().trim();
   commandsList.includes(currentInputValue)
     ? processCommand(currentInputValue)
     : processAPIResponse(currentInputValue);

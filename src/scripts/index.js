@@ -17,7 +17,7 @@ import { typeDefaultMessages } from "./chat/defaultMessages";
 import { printBottomToolbarMessage } from "./ui/bottomToolbar";
 import "./ui/topToolbar";
 import "./chat/chatScroll";
-import "./chat/test";
+import "./chat/userInput";
 
 // Initialize
 applySavedTheme();

@@ -31,4 +31,4 @@ function autoScrollCancel() {
   previousScrollTop = currentScrollTop; // new scroll value
 }
 
-export { autoScrollToBottom, clearScrollInterval };
+export { autoScrollToBottom };

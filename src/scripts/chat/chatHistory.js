@@ -1,47 +1,59 @@
-import Prism from "prismjs";
+import { insertMessage } from "./insertMessage";
+import { insertCommandMessage } from "./chatCommands";
+import { printBottomToolbarMessage } from "../ui/bottomToolbar";
 
-// Note **
-// typingTimeouts: prevents overlapping typewriting on the same element
-// specific to myTextTypewriter as several elements involving text can trigger multiple timeouts -- this prevents it
-//
+function saveChatHistory() {
+  const printedMessages = document.querySelectorAll(".js-message--chat");
+  const messagesArray = Array.from(printedMessages).map((message) => {
+    const msgType = getMsgType(message);
 
-const typingTimeouts = new Map();
-const cursor = " ●";
+    return {
+      el: message.innerHTML,
+      elementType: message.tagName.toLowerCase(),
+      lang: message.getAttribute("data-lang") || null,
+      content: message.textContent,
+      msgType,
+    };
+  });
 
-function myCodeTypewriter(el, content, lang) {
-  const langDefault = Prism.languages.javascript;
-  let i = 0;
-  function typeChar() {
-    if (i < content.length) {
-      el.textContent = content.substring(0, i + 1) + cursor;
-      i++;
-      setTimeout(typeChar, 30);
-    } else {
-      el.textContent = content;
-    }
-    el.innerHTML = Prism.highlight(
-      el.textContent,
-      Prism.languages[lang] || langDefault,
-    );
-  }
-  typeChar();
+  localStorage.setItem("chatHistory", JSON.stringify(messagesArray));
 }
 
-function myTextTypewriter(el, content) {
-  let i = 0;
-  clearTimeout(typingTimeouts.get(el));
+function getChatHistory() {
+  const storedMessages = JSON.parse(localStorage.getItem("chatHistory"));
 
-  function typeChar() {
-    if (i < content.length) {
-      el.textContent = content.substring(0, i + 1) + cursor;
-      i++;
-      typingTimeouts.set(el, setTimeout(typeChar, 35));
-    } else {
-      el.textContent = content;
-      typingTimeouts.delete(el);
-    }
+  if (storedMessages && storedMessages.length > 0) {
+    printBottomToolbarMessage("Chat retrieved from last session...");
+
+    storedMessages.forEach((message) => {
+      handleStoredMessage(message);
+    });
   }
-  typeChar();
 }
 
-export { myCodeTypewriter, myTextTypewriter };
+function clearChatHistory() {
+  localStorage.setItem("chatHistory", "[]");
+}
+
+// Helpers
+function getMsgType(message) {
+  if (Object.values(message.classList).includes("js-message--user")) {
+    return "user";
+  } else if (Object.values(message.classList).includes("js-message--command")) {
+    return "command";
+  } else {
+    return "ai";
+  }
+}
+
+// Based on type (commands inserted without typewriting effect)
+function handleStoredMessage(message) {
+  const { elementType, content, lang, msgType } = message;
+  msgType === "command"
+    ? insertCommandMessage(message)
+    : lang
+      ? insertMessage(elementType, content, lang, msgType)
+      : insertMessage(elementType, content, null, "user");
+}
+
+export { getChatHistory, saveChatHistory, clearChatHistory };
