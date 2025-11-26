@@ -83,22 +83,3 @@ function displayAIResponse(answer) {
 }
 
 export { generateAIResponse, displayAIResponse };
-
-
-
-// function generateRequestURL(userInput) {
-//   const selectedRadio = document.querySelector('input[name="options"]:checked');
-//   const prompt = generatePrompt(selectedRadio.value, userInput);
-//   const encodedContext = encodeURIComponent(context);
-//   return `https://api.shecodes.io/ai/v1/generate?prompt=${prompt}&context=${encodedContext}&key=${API_KEY}`;
-// }
-
-// function displayAIResponse(answer) {
-//   for (let el in answer) {
-//     const { element, content } = answer[el];
-//     content.code ? insertMessage(element, content.code, content.language)
-//       : insertMessage(element, content, null);
-//   }
-// }
-
-// export { displayAIResponse, generateRequestURL };
