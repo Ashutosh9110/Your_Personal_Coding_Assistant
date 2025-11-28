@@ -1,103 +1,126 @@
-## Your Personal AI Coding Assistant
+# Your Personal AI Coding Assistant
 
 A lightweight yet feature-rich AI-powered coding assistant that streamlines development workflows. It offers predefined contexts (Explain, Refactor, Debug, Convert) for focused responses, built-in chat commands for smarter guidance, automatic message encoding, Prism.js syntax-highlighted code blocks, downloadable and print-optimized chat history, and full PWA support for a seamless app-like experience.
 
-## Light Mode
-
-<a href="https://your-personal-coding-assistant.netlify.app/" target="_blank"><img src="/src/assets/dark.jpg" style="max-width: 100%;"></a>
+---
 
 ## Dark Mode
 
-<a href="https://your-personal-coding-assistant.netlify.app/" target="_blank"><img src="/src/assets/light.jpg" style="max-width: 100%;"></a>
+<p align="center">
+  <a href="https://your-personal-coding-assistant.netlify.app/" target="_blank" rel="noopener noreferrer">
+    <img src="/src/assets/dark.jpg" style="max-width: 100%;">
+  </a>
+</p>
 
-## Tech
+---
 
-- HTML5
-- CSS3
-- Tailwind
-- JavaScript
-- Webpack
-- Groq API
-- Prism.js
+## Light Mode
 
-## Project Files
+<p align="center">
+  <a href="https://your-personal-coding-assistant.netlify.app/" target="_blank" rel="noopener noreferrer">
+    <img src="/src/assets/light.jpg" style="max-width: 100%;">
+  </a>
+</p>
 
-All source code can be found in the `/src` directory and the `/public` directory contains all production-ready code, bundled and optimized using Webpack.
+---
 
-**Webpack Configuration**
+## Tech Stack
 
-- Handles the CSS and PostCSS loaders (for Tailwind)
-- Handles bundling all modularized JavaScript code
-- Handles configuring HTML with meta tags and icons
-- Handles retrieval of API key from hidden `.env` file using different plugins for prod vs. dev environment
-- Handles `manifest.json` file required for a Progressive Web Application
-- Handles minifying all CSS and JavaScript files
+- HTML5  
+- CSS3  
+- TailwindCSS  
+- JavaScript  
+- Webpack  
+- Groq API  
+- Prism.js  
 
-**Styles** in `/styles`
+---
 
-- `main.css` holds all additional Tailwind styling - used for repeating styles and to handle elements that are dynamically added
-- `prism.css` holds styling from the [Laserwave Theme](https://github.com/Jaredk3nt/laserwave) that is slightly adjusted to fit my website's style
-- `download.css` holds styles specific to the downloadable `.html` file
+## Project Structure
 
-**Data** in `/data`
+All source code can be found in the `/src` directory. The `/public` directory contains all production-ready code, bundled and optimized using Webpack.
 
-- `chatCommands.json` holds a JSON that uses either plain text strings or escaped HTML to represent content that appears when users type a specific word
-- `defaultMessages.json` holds a JSON that represents specific guidelines to show the user based on which chat option that they choose
+### **Webpack Configuration**
 
-**Scripts** in `/scripts`
+- Processes CSS + PostCSS (Tailwind)
+- Bundles modularized JavaScript files
+- Injects meta tags and favicon into HTML
+- Injects API key from `.env` (dev) or DefinePlugin (prod)
+- Generates the `manifest.json` for PWA
+- Minifies CSS and JavaScript
 
-- `/ai` handles the AI API
-- `/chat` handles information submitted by the user, dynamic content either triggered by API response or through built-in chat commands, handling chat history in browser storage, downloading chat history file and additional helpers (automatic chat scrolling, etc)
-- `/ui` handles the theme, typewriting effect, radio button selection, chat message animation and the top/bottom toolbar buttons
+---
+
+## Styles (`/styles`)
+
+- **`main.css`** — Tailwind overrides + dynamic element styling  
+- **`prism.css`** — Laserwave theme with slight customizations  
+- **`download.css`** — Styles for downloadable `.html` chat history  
+
+---
+
+## Data (`/data`)
+
+- **`chatCommands.json`** — Built-in chat commands (plain text or escaped HTML)  
+- **`defaultMessages.json`** — Default guidelines per chat mode  
+
+---
+
+## Scripts (`/scripts`)
+
+- **`/ai`** — Handles Groq API interactions  
+- **`/chat`** — User input, dynamic content injection, chat history, exporting  
+- **`/ui`** — Theme, typewriter animation, radio selection, UI controls  
+
+---
 
 ## Key Features
 
-**Design**
+### **Design**
 
-- Fully responsive without using traditional media queries
-- Custom Tailwind configuration to handle custom fonts, animations and screen sizes
-- Prism.js styling used for syntax highlighting and further customized with my own styles
-- Light and dark mode styles, including light and dark syntax highlighting
-- Additional `.css` file to apply internal CSS to the chat history's downloadable `.html` file
-- Subtle transitions and animations for elements either requiring user interaction or to provide dynamic content
-- Typewriting effect for chat-related content
-- Response time shows green for responses that arrive in less than 5s, otherwise, it'll appear red
+- Fully responsive without traditional media queries  
+- Custom Tailwind setup (fonts, screens, animations)  
+- Custom Prism.js syntax highlighting (light + dark themes)  
+- Typewriter animation with custom cursor  
+- Stylish downloadable `.html` chat history  
+- Response timer with color indicators  
 
-**Interactive Elements**
+### **Interactive Elements**
 
-- User-friendly chat interface for an interactive and visually-pleasing experience for coding-relating queries
-- Built-in chat commands allows user to access the website entirely from the chat interface
-- Toolbar: copy the latest AI-generated code snippet, save chat history for next time, clear the chat, export styled `.html` file or print the built-in commands to the chat
-- Bottom toolbar: prints the last task that was completed and provides the time it takes for a response to arrive
-- Toggle between custom styled radio buttons to select a chat option
+- Built-in chat commands (navigate the app using only the keyboard)  
+- Top toolbar: copy latest code, save chat, clear chat, export HTML, show commands  
+- Bottom toolbar: shows last task + response time  
+- Custom-styled radio buttons for task selection  
 
-**Behind-the-Scenes**
+### **Behind the Scenes**
 
-- Four prompt options that provide a different context to the chat - allowing for quick coding assistance (users can drop a code snippet without providing any details and the chat will know what to do)
-- Built-in chat commands that provides the user with the ability to use the website without using the mouse to trigger click events and to access additional information about the website and its features and limitations
-- User submitted code snippets and inputs are encoded and appended to predefined prompts before request is sent to the API to ensure secure and accurate processing
-- Utilizes the ChatGPT AI model to understand respond to user inputs effectively
-- AI responses are provided in JSON and are parsed before rendering to user with custom styling and formatting
-- Chat history and user preferences can be saved to browser storage and handled by the user via the toolbar
-- Allow chat history to be downloaded to a styled `.html` file with the filename including the website name and date of download
-- Time from request initiation to response is calculated to give users insight to the AI's performance
-- Ability to download the website as a Progressive Web Application (PWA) allowing users to use the features like a native application on desktops or mobile devices
-- Syntax highlighting is added dynamically as they are recieved by the AI
-- Typewriter effect with custom cursor created with the assistance of `setTimeout()` and `substring()` methods
+- Four prompt options with meaningful context (Explain, Refactor, Debug, Convert)  
+- Automatic input encoding before sending to API  
+- JSON-structured AI responses parsed and styled dynamically  
+- Chat history + user preferences saved in browser storage  
+- Dynamic syntax highlighting applied after DOM insertion  
+- PWA support for a native-like experience  
+
+---
 
 ## Limitations
 
-- Character Limit: The AI chat has a maximum capacity of 1000 characters per submission, however, I am using 300 characters to provide context for each chat so users can only provide 700 characters per submission so the `<textarea>` element is adjusted to reflect this limitation.
-- Handling Complex Issues: For more intricate coding-related queries, I recommend dividing the code into smaller segments and interacting with the chat step-by-step. Alternatively, it might be better to use ChatGPT directly for more extensive assistance.
-- Adherence to Guidelines: For the most optimal experience, please ensure that you follow the specific guidelines provided for each assistance option.
-- Limited testing: I've only tested the chat with popular languages (JavaScript, CSS/SASS, Typescript, Python, Java, Lua) and some random ones like COBOL and it worked as expected _(so far)_.
+- **Character Limit:** 1000 characters total per request  
+  - 300 reserved for system prompt → user gets 700 chars  
+- **Complex Code:** Large codebases should be split into smaller chunks  
+- **Guideline Sensitivity:** Ensure correct mode selection for best results  
+- **Language Support:** Tested mostly with JS, CSS/SASS, TS, Python, Java, Lua, and COBOL  
+
+---
 
 ## Available Scripts
 
-#### `npm run build`
+### `npm run build`
+- Builds in production mode  
+- Sets `NODE_ENV=production`
 
-- Build in production mode + sets `NODE_ENV` variable to `production`
+### `npm run start`
+- Starts development server  
+- Sets `NODE_ENV=development`
 
-#### `npm run start`
-
-- Starts the development server + sets `NODE_ENV` variable to `development`
+---

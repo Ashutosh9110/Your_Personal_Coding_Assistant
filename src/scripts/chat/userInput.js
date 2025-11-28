@@ -17,6 +17,15 @@ const messageEl = document.querySelector("#js-toolbar-message");
 const userInput = document.querySelector("#js-user-input");
 const textarea = document.querySelector("#js-user-form");
 
+
+userInput.addEventListener("keydown", (e) => {
+  if (e.key === "Enter" && !e.shiftKey) {
+    e.preventDefault()
+    textarea.requestSubmit()
+  }
+});
+
+
 textarea.addEventListener("submit", (event) => {
   event.preventDefault();
   insertMessage("div", userInput.value, null, "user");
